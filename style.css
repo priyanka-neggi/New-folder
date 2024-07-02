@@ -1,0 +1,397 @@
+@font-face {
+    font-family: myfont1;
+    src: url("./fonts/Candia-Script-Font.ttf");
+}
+@font-face {
+    font-family: myfont2;
+    src: url("./fonts/Calimindo-Font.ttf");
+}
+@font-face {
+    font-family: myfont3;
+    src: url("./fonts/Callmounth-Regular.ttf");
+}
+@font-face {
+    font-family: myfont4;
+    src: url("./fonts/Calloveya.ttf");
+}
+@font-face {
+    font-family: 'Parabole';
+    src: url('./fonts/Parabole.ttf');
+}
+.dif-font1{
+    font-family: myfont1;
+}
+.dif-font2{
+    font-family: myfont2;
+}
+.dif-font3{
+    font-family: myfont3;
+}
+.dif-font4{
+    font-family: myfont4;
+}
+.dif-font5{
+    font-family: Parabole;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    &::selection{
+        color: #fffaf4;
+        background-color: #000;
+    }
+}
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Ubuntu Sans";
+}
+#main {
+    overflow-x: hidden;
+}
+.section {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 2vw;
+    overflow-x: hidden;
+}
+.section1 {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 2vw;
+    overflow-x: hidden;
+}
+.section-scroll {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 2vw;
+    overflow-x: hidden;
+}
+#page1 {
+    border-radius: 0;
+}
+.section video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: 10vh;
+    align-content: center;
+    background-color: transparent;
+    transition: color 1s ease-in-out;
+    color: #ffffff;
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    &:hover a {
+        color: #000;
+    }
+}
+header::before {
+    content: "";
+    background-color: #fffaf4;
+    /* height: inherit; */
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-left-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    z-index: -1;
+    /* transform: translateY(-101%); */
+    height: 0%;
+    transition: all 0.3s ease-in-out;
+}
+header:hover::before {
+    /* transform: translateY(0); */
+    height: inherit;
+}
+header:hover .right-nav::before {
+    color: #000;
+}
+header:hover .right-nav img {
+    filter: invert(0);
+}
+.scroll-down header {
+    transform: translate3d(0, -100%, 0);
+    transition: all 0.5s ease-in-out;
+}
+.scroll-up header {
+    transition: all 0.5s ease-in-out;
+    filter: drop-shadow(0 -12px 20px rgb(170, 170, 170));
+    &::before {
+        /* transform: translateY(0); */
+        height: inherit;
+    }
+}
+.scroll-up .right-nav::before {
+    color: #000;
+}
+.scroll-up nav a {
+    color: #000;
+}
+.scroll-up nav .right-nav img {
+    filter: invert(0);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+nav .mid-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2vw;
+    &a {
+        font-size: 1vw;
+    }
+}
+.left-nav a {
+    font-size: 2vw;
+}
+.right-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    height: 8vh;
+    width: 7vw;
+    /* background-color: #000; */
+    position: relative;
+}
+.right-nav img {
+    height: 60%;
+    color: #ffffec;
+    filter: invert(1);
+    cursor: pointer;
+}
+.right-nav:before {
+    content: "Sign Up";
+    position: absolute;
+    left: 0;
+    color: inherit;
+    z-index: 10;
+}
+/* Media query for mobile screens */
+@media (max-width: 668px) {
+    /* Adjust header height */
+    header {
+        height: 7vh;
+    }
+
+    /* Increase font sizes for better readability */
+    .left-nav a {
+        font-size: 5vw;
+    }
+    nav .mid-nav a {
+        font-size: 2vw;
+    }
+
+    /* Adjust right-nav size and content */
+    .right-nav {
+        width: auto;
+        height: 7vh;
+    }
+    .right-nav::before {
+        content: ""; /* Remove text content for smaller screens */
+    }
+    .right-nav img {
+        width: 100%; /* Make image responsive */
+    }
+
+    /* You can add more styles here to optimize for mobile */
+}
+#page2 {
+    background-color: #ffffec;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+#page2 h1 {
+    margin-left: 2vw;
+}
+.container {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    /* background-color: #000; */
+}
+
+.cards {
+    /* background-color: pink; */
+    display: flex;
+    gap: 10vh;
+    padding: 0 50px;
+}
+
+.card {
+    height: 70vh;
+    overflow: hidden;
+    flex: 1 0 30vw;
+    border-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+}
+
+.card img {
+    object-fit: cover;
+    object-position: center;
+}
+.heading {
+    display: grid;
+    place-content: center;
+    padding: 0;
+    text-wrap: nowrap;
+    font-size: 3vw;
+}
+
+
+/* Media query for mobile screens (adjust max-width as needed) */
+#heading-mobile {
+    display: none;
+    font-size: 5vw;
+    padding: 0;
+    text-wrap: nowrap;
+    place-content: center;
+}
+@media only screen and (max-width: 768px) {
+    #page2 {
+        /* Remove height and use flexbox for alignment */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        height: auto; /* Adjust height as needed on mobile */
+        overflow: visible; /* Allow overflow if content exceeds container */
+    }
+
+    .cards {
+        flex-wrap: nowrap; /* Wrap cards onto multiple lines */
+        gap: 5vw; /* Adjust gap for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .card {
+        height: 30vh; /* Adjust card height for mobile */
+        flex: 1 0 45%; /* Adjust card width for smaller screens */
+    }
+
+    .heading {
+        font-size: 5vw; /* Increase font size for better readability */
+    }
+
+    #heading-pc{
+        display: none;
+    }
+    #heading-mobile{
+        display: block;
+    }
+    .card {
+        height: 70vh;
+        overflow: hidden;
+        flex: 1 0 100vw;
+        border-radius: 2vw;
+        border-bottom-left-radius: 2vw;
+    }
+    .card:last-child{
+        display: none;
+    }
+}
+#page3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #fff; */
+}
+
+#page3 video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1vw;
+}
+.video-div{
+    position: relative;
+    width: 60%;
+    height: auto;
+    border-radius: 1vw;
+}
+
+.overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); 
+    color: white; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 1vw;
+  }
+  
+  .overlay h1,
+  .overlay p ,
+  .overlay div {
+    margin: 1vw; 
+  }
+
+.btn-order{
+    border: 1px solid #a2a0a0;
+    padding: 1vw;
+    padding-block: 0.5vw;
+    border-radius: 5vw;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        background-color: #000;
+        border: none;
+    }
+}
+
+.btn-order a{
+    text-decoration: none;
+    color: #fffaf4;
+}
+
+#shows {
+    background-color: #fffaf4;
+}
+
+.scroll-heading{
+    font-size: 48vw;
+    text-wrap: nowrap;
+    
+}
+.mid-img{
+    display: inline-block; height: 40vw;
+}
+
+.mid-img img{
+    object-fit: cover; height: 100%;
+}

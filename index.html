@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="./resources/Dior_icon.ico" />
+  <script defer src="https://assets.codepen.io/16327/InertiaPlugin.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>| Dior</title>
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="main">
+    <header class="header">
+      <nav class="">
+        <div class="left-nav">
+          <a href="#">DIOR</a>
+        </div>
+        <div class="mid-nav">
+          <a href="#fashion">Fashion</a>
+          <a href="#perfumes">Perfumes</a>
+          <a href="#shows">Shows</a>
+        </div>
+        <div class="right-nav">
+          <img src="./resources/icons8-customer-64.png" alt="" />
+        </div>
+      </nav>
+    </header>
+    <div class="section" id="page1">
+      <video src="./resources/image-video.mp4" autoplay loop muted></video>
+    </div>
+    <div class="section" id="page2">
+      <div id="heading-mobile" class="heading">
+        <h1>
+          The Elegance of <br /><span class="dif-font2">Christian Dior</span>
+        </h1>
+      </div>
+      <div class="container">
+        <div class="cards">
+          <div id="heading-pc" class="heading">
+            <h1>
+              The Elegance of <br /><span class="dif-font2">Christian Dior</span>
+            </h1>
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/b2523womcod81p_1440_1200.webp" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/m0505oifim03i_1440_1200.avif" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/441b87a3356x0100_1440_1200.avif" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/m4401unmzm900_1440_1200.avif" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/mens-fashion-fall-2435.avif" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/purse.webp" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/new1.webp" alt="" />
+          </div>
+          <div class="card">
+            <img src="./resources/images/fashion/1714733351_F_24_3_LOOK_619_E06_GHC.avif" alt="" />
+          </div>
+          <div class="card"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="page3">
+      <div class="video-div">
+        <video src="./resources/f18977d8d175326cc58d01eb06dd9bee.webm" autoplay loop muted></video>
+        <div class="overlay">
+          <h1 class="dif-font5">DIORIVIERA</h1>
+          <p>
+            Promising an endless summer, the Dioriviera collection, dreamed up
+            by
+            <span class="dif-font1">Maria Grazia <br />
+              Chiuri</span>, is infused with the dolce vita so dear to the
+            founding-couturier. <br />
+            This season, a series of exceptional pieces – from ready-to-wear
+            to accessories – are adorned with <br />
+            <span class="dif-font4"> Toile de Jouy Sauvage</span> and
+            <span class="dif-font2"> Toile de Jouy Soleil</span>, revealed in
+            a palette of bewitching, tonic shades. <br />
+            A Dior odyssey in perpetual reinvention.
+          </p>
+          <div class="btn-order">
+            <a href="#">Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-scroll" id="shows" style="position: relative;">
+      <h1 class="dif-font5 scroll-heading">Dior. <div class="mid-img"><img src="./resources/shows/dior_cruise25show_videofinale_desktop.avif" alt="">.</div> Fashion.<div class="mid-img"><img src="./resources/shows/dior_show_ss24_finalshowvideo_desktop.webp" style="object-fit: cover; height: 100%;" alt="">.</div> Weekends.<div class="mid-img"><img src="./resources/shows/dior_men_show_winter24_169.webp" alt="">.</div></h1>
+    </div>
+    <div class="section1" style="background-color: aquamarine; height:300vh"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"
+    integrity="sha512-G7Wpe/pbg+zjyyM9HgQY6kacLAy+580lmA8DUXmZtioTI5FkaCRoLOaCLoeblrZABs7KZFD03cfSV9j7nmwxfw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/inertia-plugin@0.6.0/dist/runtime.iife.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
