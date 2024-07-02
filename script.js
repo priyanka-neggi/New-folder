@@ -137,7 +137,7 @@ gsap.to('#shows .scroll-heading',{
     scroller:'body',
     start:"top 0",
     end:"top -100%",
-    scrub:true,
+    scrub:3,
     pin:"#shows"
   }
 })
