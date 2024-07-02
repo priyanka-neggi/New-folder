@@ -233,19 +233,26 @@ nav .mid-nav {
     display: flex;
     gap: 4vmin;
     position: absolute;
-    left: 50%;
+    left: 0%;
     top: 50%;
     transform: translate(0%, -50%); 
-    user-select: none; /* -- Prevent image highlighting -- */
+    user-select: none; 
+    cursor: grab;
   }
   
   #image-track > .image {
-    width: 40vmin;
-    height: 56vmin;
+    width: 50vmin;
+    height: 66vmin;
     object-fit: cover;
+    border-radius: 2vw;
     object-position: 100% center;
   }
-  
+ .title-div {
+    width: 40vw; 
+    display: grid; 
+    place-items: center; 
+    font-size: 2.5vw;
+ } 
   
 .heading {
     display: grid;
