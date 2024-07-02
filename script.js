@@ -44,6 +44,50 @@ sections.forEach(section => {
     })
 });
 
+const track = document.getElementById("image-track");
+
+const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+
+const handleOnUp = () => {
+  track.dataset.mouseDownAt = "0";  
+  track.dataset.prevPercentage = track.dataset.percentage;
+}
+
+const handleOnMove = e => {
+  if(track.dataset.mouseDownAt === "0") return;
+  
+  const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+        maxDelta = window.innerWidth / 2;
+  
+  const percentage = (mouseDelta / maxDelta) * -100,
+        nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+        nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+  
+  track.dataset.percentage = nextPercentage;
+  
+  track.animate({
+    transform: `translate(${nextPercentage}%, -50%)`
+  }, { duration: 1200, fill: "forwards" });
+  
+  for(const image of track.getElementsByClassName("image")) {
+    image.animate({
+      objectPosition: `${100 + nextPercentage}% center`
+    }, { duration: 1200, fill: "forwards" });
+  }
+}
+
+window.onmousedown = e => handleOnDown(e);
+
+window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+window.onmouseup = e => handleOnUp(e);
+
+window.ontouchend = e => handleOnUp(e.touches[0]);
+
+window.onmousemove = e => handleOnMove(e);
+
+window.ontouchmove = e => handleOnMove(e.touches[0]);
+
 // gsap.to("#page2 .cards",{
 //     xPercent:-120,
 //     ease:"none",
@@ -56,91 +100,6 @@ sections.forEach(section => {
 //         scrub:1
 //     }
 // })
-
-gsap.registerPlugin(Draggable, InertiaPlugin)
-
-const cardsContainer = document.querySelector('.cards')
-const cards = gsap.utils.toArray('.card')
-const snapPoints = cards.map((card, i) => -(card.clientWidth + 50)* i)
-const mySnap = gsap.utils.snap(snapPoints)
-
-window.addEventListener("load", () =>{
-  Draggable.create(cardsContainer, {
-    type: "x",
-    bounds:{
-      maxX: 0,
-      minX: window.innerWidth - cardsContainer.scrollWidth - 50
-    },
-    ondrag: function () {
-      direction = this.deltaX
-    },
-    inertia: true,
-    snap:{
-      x: function(v){
-        return mySnap(v)
-      }
-    }
-  })
-})
-// const buttons = buttonContainer.querySelectorAll('button'); // Or use appropriate selector
-
-// buttons.forEach(button => {
-//   button.addEventListener('click', () => {
-//     // Determine snap increment (e.g., one card width)
-//     const snapIncrement = cardWidth + gap;
-
-//     if (draggable.isDragging()) {
-//       // Stop dragging if currently in progress
-//       draggable.disable();
-//     }
-
-//     // Calculate target snap position based on button click
-//     let targetSnapIndex;
-//     if (button.classList.contains('prev')) { // Assuming class for "prev" button
-//       targetSnapIndex = Math.max(0, draggable.vars.x - snapIncrement); // Snap to previous (capped at minX)
-//     } else if (button.classList.contains('next')) { // Assuming class for "next" button
-//       targetSnapIndex = Math.min(snapPoints.length - 1, draggable.vars.x + snapIncrement); // Snap to next (capped at maxX)
-//     }
-
-//     // Snap to the target position
-//     if (typeof targetSnapIndex !== 'undefined') {
-//       draggable.tweenTo(snapPoints[targetSnapIndex]);
-//     }
-//   });
-// });
-
-// const cardsContainer = document.querySelector('.cards');
-// const cards = gsap.utils.toArray('.card');
-// console.log(cards);
-
-// const cardWidth = cards[0].clientWidth;  // Assuming all cards have same width
-// const gap = cardsContainer.offsetWidth - cards.length * cardWidth;
-// const snapPoints = cards.map((card, i) => -(cardWidth + gap) * i);
-// const mySnap = gsap.utils.snap(snapPoints);
-
-// window.addEventListener("load", () => {
-//   Draggable.create(cardsContainer, {
-//     type: "x",
-//     bounds: {
-//       maxX: 0,
-//       minX: (window.innerWidth - cardsContainer.scrollWidth) -50
-//     },
-//     onDrag: function() {
-//         direction = this.deltaX      
-//     },
-//     inertia: true,
-//     snap: {
-//         x: function(v) {
-//           const closestSnapPoint = snapPoints.reduce((prev, curr) => {
-//             const prevDistance = Math.abs(prev - v);
-//             const currDistance = Math.abs(curr - v);
-//             return currDistance < prevDistance ? curr : prev;
-//           });
-//           return closestSnapPoint;
-//         }
-//       }
-//   });
-// });
 
 
 gsap.to('#page3 .video-div',{
