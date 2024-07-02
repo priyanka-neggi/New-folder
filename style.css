@@ -7,6 +7,10 @@
     src: url("./fonts/Calimindo-Font.ttf");
 }
 @font-face {
+    font-family: mainFont;
+    src: url("./fonts/Ubuntu.ttf");
+}
+@font-face {
     font-family: myfont3;
     src: url("./fonts/Callmounth-Regular.ttf");
 }
@@ -51,7 +55,7 @@ html,
 body {
     height: 100%;
     width: 100%;
-    font-family: "Ubuntu Sans";
+    font-family: mainFont;
 }
 #main {
     overflow-x: hidden;
