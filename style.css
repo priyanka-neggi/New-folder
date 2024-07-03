@@ -398,3 +398,62 @@ nav .mid-nav {
 .mid-img img{
     object-fit: cover; height: 100%;
 }
+
+.page4{
+    background-color: antiquewhite;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background: url(./resources/images/fashion/dd.jpg);
+    background-position: center;
+    object-fit: cover;
+}
+.model-container{
+    width: 95vw;
+    height: 90vh;
+    /* background-color: #000; */
+    padding: 1em 0.5em;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.circle{
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.model-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    /* background-color: #000; */
+}
+
+.model{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 10vw;
+    height:90%;
+    margin: 0 5px;
+    background-color: #000;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: 0.5vw;
+}
+
+.model img{
+    width: 25vw;
+    height: 100%;
+    object-fit: cover;
+    
+}
