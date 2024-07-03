@@ -141,3 +141,38 @@ gsap.to('#shows .scroll-heading',{
     pin:"#shows"
   }
 })
+
+
+const galleryContainer = document.querySelector('.model-container')
+const galleryItems = document.querySelectorAll('.model')
+const indicator = document.querySelector('.circle')
+
+const defaultItemFlex = "0 1 10vw"
+const hoverItemFlex = "1 1 50vw"
+
+const updateGalleryItems = () => {
+  galleryItems.forEach((item)=>{
+    let flex = defaultItemFlex;
+    if (item.isHovered){
+      flex = hoverItemFlex;
+    }
+    item.style.flex = flex;
+  })
+};
+galleryItems[0].isHovered = true;
+updateGalleryItems();
+
+galleryItems.forEach((item) => {
+  item.addEventListener("mouseenter",() => {
+    galleryItems.forEach((otherItem) => {
+      otherItem.isHovered = otherItem === item;
+    });
+    updateGalleryItems();
+  });
+});
+
+galleryContainer.addEventListener('mousemove', (e) => {
+  indicator.style.left = `${
+    e.clientX - galleryContainer.getBoundingClientRect().left
+  }px`
+})
